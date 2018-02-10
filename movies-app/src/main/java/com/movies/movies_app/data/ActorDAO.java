@@ -16,13 +16,13 @@ public class ActorDAO {
     private EntityManager em;
     
 	public List<Actor> getAllActors() {
-    	Query query=em.createQuery("SELECT m FROM Actor m");
+    	Query query=em.createQuery("SELECT w FROM Actor w");
         return query.getResultList();
     }
 	
 	public List<Actor> getActorsByName(String name) {
-    	Query query=em.createQuery("SELECT m FROM Actor AS m "+
-    								"WHERE m.name LIKE ?1");
+    	Query query=em.createQuery("SELECT w FROM Actor AS w "+
+    								"WHERE w.name LIKE ?1");
     	query.setParameter(1, "%"+name.toUpperCase()+"%");
         return query.getResultList();
     }

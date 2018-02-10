@@ -2,6 +2,8 @@ package com.movies.movies_app.rest;
 
 import java.util.List;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -15,15 +17,26 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
-
+import com.movies.movies_app.data.ActorDAO;
 import com.movies.movies_app.model.Actor;
 
-@RequestScoped
 @Path("/actors")
+@Stateless
+@LocalBean
 @Produces({ "application/xml", "application/json" })
 @Consumes({ "application/xml", "application/json" })
 public class ActorWS {
+	
+	private ActorDAO actorDAO;
+	
+	@GET
+	public Response listAll(@QueryParam("start") final Integer startPosition,
+			@QueryParam("max") final Integer maxResult) {
+		List<Actor> actor = actorDAO.getAllActors();
+		return Response.status(200).entity(actor).build();
+	}
 
+	/*
 	@POST
 	public Response create(final Actor actor) {
 		//TODO: process the given actor 
@@ -44,14 +57,6 @@ public class ActorWS {
 		return Response.ok(actor).build();
 	}
 
-	@GET
-	public List<Actor> listAll(@QueryParam("start") final Integer startPosition,
-			@QueryParam("max") final Integer maxResult) {
-		//TODO: retrieve the actors 
-		final List<Actor> actors = null;
-		return actors;
-	}
-
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
 	public Response update(@PathParam("id") Long id, final Actor actor) {
@@ -65,5 +70,5 @@ public class ActorWS {
 		//TODO: process the actor matching by the given id 
 		return Response.noContent().build();
 	}
-
+	 */
 }

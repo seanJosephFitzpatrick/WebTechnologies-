@@ -2,6 +2,8 @@ package com.movies.movies_app.rest;
 
 import java.util.List;
 
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -18,8 +20,9 @@ import javax.ws.rs.core.UriBuilder;
 
 import com.movies.movies_app.model.Movie;
 
-@RequestScoped
 @Path("/movies")
+@Stateless
+@LocalBean
 @Produces({ "application/xml", "application/json" })
 @Consumes({ "application/xml", "application/json" })
 public class MovieWS {

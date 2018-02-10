@@ -7,8 +7,8 @@ import javax.persistence.metamodel.StaticMetamodel;
 public abstract class MoviesGenre_ {
 
 	public static volatile SingularAttribute<MoviesGenre, String> genre;
-	public static volatile SingularAttribute<MoviesGenre, Integer> movieId;
 	public static volatile SingularAttribute<MoviesGenre, Integer> id;
+	public static volatile SingularAttribute<MoviesGenre, Integer> movieId;
 
 }
 
