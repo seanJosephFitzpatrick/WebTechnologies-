@@ -2,6 +2,7 @@ package com.movies.movies_app.rest;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
@@ -14,6 +15,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
@@ -27,9 +29,11 @@ import com.movies.movies_app.model.Actor;
 @Consumes({ "application/xml", "application/json" })
 public class ActorWS {
 	
+	@EJB
 	private ActorDAO actorDAO;
 	
 	@GET
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response listAll(@QueryParam("start") final Integer startPosition,
 			@QueryParam("max") final Integer maxResult) {
 		List<Actor> actor = actorDAO.getAllActors();
