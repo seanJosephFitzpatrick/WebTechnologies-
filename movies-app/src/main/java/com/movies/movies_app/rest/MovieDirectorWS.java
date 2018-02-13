@@ -25,14 +25,14 @@ import com.movies.movies_app.model.MovieDirector;
 @LocalBean
 @Produces({ "application/xml", "application/json" })
 @Consumes({ "application/xml", "application/json" })
-public class MoviesDirectorWS {
+public class MovieDirectorWS {
 
 	@POST
 	public Response create(final MovieDirector moviesdirector) {
 		//TODO: process the given moviesdirector 
 		//here we use MoviesDirector#getId(), assuming that it provides the identifier to retrieve the created MoviesDirector resource. 
 		return Response.created(
-				UriBuilder.fromResource(MoviesDirectorWS.class).path(String.valueOf(moviesdirector.getId())).build())
+				UriBuilder.fromResource(MovieDirectorWS.class).path(String.valueOf(moviesdirector.getId())).build())
 				.build();
 	}
 
