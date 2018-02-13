@@ -12,11 +12,8 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import com.movies.movies_app.data.DirectorDAO;
 import com.movies.movies_app.data.MovieDirectorDAO;
-import com.movies.movies_app.model.Director;
 import com.movies.movies_app.model.MovieDirector;
-import com.movies.movies_app.rest.DirectorWS;
 import com.movies.movies_app.rest.JaxRsActivator;
 import com.movies.movies_app.rest.MovieDirectorWS;
 import com.movies.movies_app.test.utils.UtilsDAO;
@@ -55,7 +52,6 @@ public class MovieDirectorTest {
 		//it should be possible to test with an in memory db for efficiency
 		utilsDAO.deleteTableMovieDirector();
 		MovieDirector movieDirector = new MovieDirector();
-		movieDirector.setId(0);
 		movieDirector.setDirectorId(15156);
 		movieDirector.setMovieId(142424);
 		movieDirectorDAO.save(movieDirector);

@@ -1,7 +1,7 @@
 package com.movies.movies_app.rest;
 
 import java.util.List;
-
+import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
@@ -14,10 +14,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
-
+import com.movies.movies_app.data.MovieDirectorDAO;
 import com.movies.movies_app.model.MovieDirector;
 
 @Path("/moviesdirectors")
@@ -26,7 +27,19 @@ import com.movies.movies_app.model.MovieDirector;
 @Produces({ "application/xml", "application/json" })
 @Consumes({ "application/xml", "application/json" })
 public class MovieDirectorWS {
+	
+	@EJB
+	private MovieDirectorDAO movieDirectorDAO;
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response listAll(@QueryParam("start") final Integer startPosition,
+			@QueryParam("max") final Integer maxResult) {
+			List<MovieDirector> movieDirector = movieDirectorDAO.getAllMovieDirectors();
+			return Response.status(200).entity(movieDirector).build();
+	}
 
+	/*
 	@POST
 	public Response create(final MovieDirector moviesdirector) {
 		//TODO: process the given moviesdirector 
@@ -68,5 +81,6 @@ public class MovieDirectorWS {
 		//TODO: process the moviesdirector matching by the given id 
 		return Response.noContent().build();
 	}
+	*/
 
 }
