@@ -10,8 +10,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="movies_directors")
-@NamedQuery(name="MoviesDirector.findAll", query="SELECT m FROM MoviesDirector m")
-public class MoviesDirector implements Serializable {
+@NamedQuery(name="MovieDirector.findAll", query="SELECT m FROM MovieDirector m")
+public class MovieDirector implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,7 +23,7 @@ public class MoviesDirector implements Serializable {
 	@Column(name="movie_id")
 	private int movieId;
 
-	public MoviesDirector() {
+	public MovieDirector() {
 	}
 
 	public int getId() {

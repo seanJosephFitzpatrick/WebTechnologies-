@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 
-import com.movies.movies_app.model.MoviesDirector;
+import com.movies.movies_app.model.MovieDirector;
 
 @Path("/moviesdirectors")
 @Stateless
@@ -28,7 +28,7 @@ import com.movies.movies_app.model.MoviesDirector;
 public class MoviesDirectorWS {
 
 	@POST
-	public Response create(final MoviesDirector moviesdirector) {
+	public Response create(final MovieDirector moviesdirector) {
 		//TODO: process the given moviesdirector 
 		//here we use MoviesDirector#getId(), assuming that it provides the identifier to retrieve the created MoviesDirector resource. 
 		return Response.created(
@@ -40,7 +40,7 @@ public class MoviesDirectorWS {
 	@Path("/{id:[0-9][0-9]*}")
 	public Response findById(@PathParam("id") final Long id) {
 		//TODO: retrieve the moviesdirector 
-		MoviesDirector moviesdirector = null;
+		MovieDirector moviesdirector = null;
 		if (moviesdirector == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
@@ -48,16 +48,16 @@ public class MoviesDirectorWS {
 	}
 
 	@GET
-	public List<MoviesDirector> listAll(@QueryParam("start") final Integer startPosition,
+	public List<MovieDirector> listAll(@QueryParam("start") final Integer startPosition,
 			@QueryParam("max") final Integer maxResult) {
 		//TODO: retrieve the moviesdirectors 
-		final List<MoviesDirector> moviesdirectors = null;
+		final List<MovieDirector> moviesdirectors = null;
 		return moviesdirectors;
 	}
 
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
-	public Response update(@PathParam("id") Long id, final MoviesDirector moviesdirector) {
+	public Response update(@PathParam("id") Long id, final MovieDirector moviesdirector) {
 		//TODO: process the given moviesdirector 
 		return Response.noContent().build();
 	}
