@@ -2,6 +2,7 @@ package com.movies.movies_app.rest;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
@@ -14,10 +15,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 
+import com.movies.movies_app.data.RoleDAO;
+import com.movies.movies_app.model.Actor;
 import com.movies.movies_app.model.Role;
 
 @Path("/roles")
@@ -26,7 +30,19 @@ import com.movies.movies_app.model.Role;
 @Produces({ "application/xml", "application/json" })
 @Consumes({ "application/xml", "application/json" })
 public class RoleWS {
-
+	
+	@EJB
+	private RoleDAO roleDAO;
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response listAll(@QueryParam("start") final Integer startPosition,
+			@QueryParam("max") final Integer maxResult) {
+		List<Role> role = roleDAO.getAllRoles();
+		return Response.status(200).entity(role).build();
+	}
+	
+	/*
 	@POST
 	public Response create(final Role role) {
 		//TODO: process the given role 
@@ -46,14 +62,6 @@ public class RoleWS {
 		return Response.ok(role).build();
 	}
 
-	@GET
-	public List<Role> listAll(@QueryParam("start") final Integer startPosition,
-			@QueryParam("max") final Integer maxResult) {
-		//TODO: retrieve the roles 
-		final List<Role> roles = null;
-		return roles;
-	}
-
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
 	public Response update(@PathParam("id") Long id, final Role role) {
@@ -67,5 +75,6 @@ public class RoleWS {
 		//TODO: process the role matching by the given id 
 		return Response.noContent().build();
 	}
+	*/
 
 }

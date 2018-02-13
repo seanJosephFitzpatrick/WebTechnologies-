@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.movies.movies_app.test.MoviesGenreTest" time="0.229" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="com.movies.movies_app.test.MoviesGenreTest" time="0.744" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Users\A00248114\Documents\java7\jdk1.7.0_79\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\LanSchool Files\SeanLanSchoolFiles\Semester2\WebTechnologies\projectsEclipse\SettingUpJBoss\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf3330195708375253779.tmp"/>
+    <property name="classworlds.conf" value="C:\LanSchool Files\SeanLanSchoolFiles\Semester2\WebTechnologies\projectsEclipse\SettingUpJBoss\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf8893053174702929363.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Users\A00248114\Documents\java7\jdk1.7.0_79\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Program Files/Java/jdk1.8.0_45/bin/../jre/bin/server;C:/Program Files/Java/jdk1.8.0_45/bin/../jre/bin;C:/Program Files/Java/jdk1.8.0_45/bin/../jre/lib/amd64;C:\Program Files (x86)\Haskell\bin;C:\Program Files (x86)\Haskell Platform\2011.2.0.1\lib\extralibs\bin;C:\Program Files (x86)\Haskell Platform\2011.2.0.1\bin;C:\ProgramData\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Program Files (x86)\GNU\GnuPG\pub;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\MATLAB7\bin\win32;C:\Program Files\Java\jdk1.8.0_45\bin;C:\eclipse EE;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -60,5 +60,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testGetAllMoviesGenres" classname="com.movies.movies_app.test.MoviesGenreTest" time="0.229"/>
+  <testcase name="testGetAllMoviesGenres" classname="com.movies.movies_app.test.MoviesGenreTest" time="0.744"/>
 </testsuite>
