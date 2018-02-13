@@ -1,7 +1,6 @@
 package com.movies.movies_app.rest;
 
 import java.util.List;
-
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -19,9 +18,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
-
 import com.movies.movies_app.data.MovieDAO;
-import com.movies.movies_app.model.Director;
 import com.movies.movies_app.model.Movie;
 
 @Path("/movies")
