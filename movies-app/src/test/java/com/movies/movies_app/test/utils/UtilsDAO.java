@@ -18,5 +18,12 @@ public class UtilsDAO {
 		.executeUpdate();
 		
 	}
+	
+	public void deleteTableDirector(){
+		em.createQuery("DELETE FROM Director").executeUpdate();
+		em.createNativeQuery("ALTER TABLE directors AUTO_INCREMENT=1")
+		.executeUpdate();
+		
+	}
       
 }

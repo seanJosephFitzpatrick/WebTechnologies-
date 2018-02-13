@@ -17,7 +17,7 @@ public class DirectorDAO {
     @PersistenceContext
     private EntityManager em;
     
-	public List<Director> getAllDirector() {
+	public List<Director> getAllDirectors() {
     	Query query=em.createQuery("SELECT w FROM Director w");
         return query.getResultList();
     }
