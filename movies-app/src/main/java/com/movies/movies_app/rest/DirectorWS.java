@@ -1,7 +1,7 @@
 package com.movies.movies_app.rest;
 
 import java.util.List;
-
+import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
@@ -14,10 +14,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
-
+import com.movies.movies_app.data.DirectorDAO;
 import com.movies.movies_app.model.Director;
 
 @Path("/directors")
@@ -26,7 +27,20 @@ import com.movies.movies_app.model.Director;
 @Produces({ "application/xml", "application/json" })
 @Consumes({ "application/xml", "application/json" })
 public class DirectorWS {
+	
+	@EJB
+	private DirectorDAO directorDAO;
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response listAll(@QueryParam("start") final Integer startPosition,
+			@QueryParam("max") final Integer maxResult) {
+		List<Director> director = directorDAO.getAllDirectors();
+		return Response.status(200).entity(director).build();
 
+	}
+
+	/*
 	@POST
 	public Response create(final Director director) {
 		//TODO: process the given director 
@@ -47,14 +61,6 @@ public class DirectorWS {
 		return Response.ok(director).build();
 	}
 
-	@GET
-	public List<Director> listAll(@QueryParam("start") final Integer startPosition,
-			@QueryParam("max") final Integer maxResult) {
-		//TODO: retrieve the directors 
-		final List<Director> directors = null;
-		return directors;
-	}
-
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
 	public Response update(@PathParam("id") Long id, final Director director) {
@@ -68,5 +74,6 @@ public class DirectorWS {
 		//TODO: process the director matching by the given id 
 		return Response.noContent().build();
 	}
+	*/
 
 }
