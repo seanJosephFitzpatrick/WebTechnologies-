@@ -46,5 +46,11 @@ public class UtilsDAO {
 		.executeUpdate();
 		
 	}
+	public void deleteTableRole(){
+		em.createQuery("DELETE FROM Role").executeUpdate();
+		em.createNativeQuery("ALTER TABLE roles AUTO_INCREMENT=1")
+		.executeUpdate();
+		
+	}
       
 }
