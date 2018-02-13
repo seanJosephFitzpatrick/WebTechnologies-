@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.movies.movies_app.test.MovieDirectorTest" time="0.349" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="com.movies.movies_app.test.MoviesGenreTest" time="1.202" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Users\A00248114\Documents\java7\jdk1.7.0_79\jre\bin"/>
@@ -60,5 +60,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testGetAllMovieDirectors" classname="com.movies.movies_app.test.MovieDirectorTest" time="0.349"/>
+  <testcase name="testGetAllMoviesGenres" classname="com.movies.movies_app.test.MoviesGenreTest" time="1.202"/>
 </testsuite>

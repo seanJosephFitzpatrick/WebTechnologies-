@@ -11,7 +11,7 @@ import com.movies.movies_app.model.MoviesGenre;
 
 @Stateless
 @LocalBean
-public class MovieGenreDAO {
+public class MoviesGenreDAO {
 	
     @PersistenceContext
     private EntityManager em;

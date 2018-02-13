@@ -32,5 +32,12 @@ public class UtilsDAO {
 		.executeUpdate();
 		
 	}
+	
+	public void deleteTableMoviesGenre(){
+		em.createQuery("DELETE FROM MoviesGenre").executeUpdate();
+		em.createNativeQuery("ALTER TABLE movies_genres AUTO_INCREMENT=1")
+		.executeUpdate();
+		
+	}
       
 }
