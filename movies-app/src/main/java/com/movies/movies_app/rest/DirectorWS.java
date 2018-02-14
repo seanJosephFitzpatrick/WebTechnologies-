@@ -4,7 +4,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -17,7 +16,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.UriBuilder;
 import com.movies.movies_app.data.DirectorDAO;
 import com.movies.movies_app.model.Director;
 
@@ -39,41 +37,41 @@ public class DirectorWS {
 		return Response.status(200).entity(director).build();
 
 	}
-
-	/*
-	@POST
-	public Response create(final Director director) {
-		//TODO: process the given director 
-		//here we use Director#getId(), assuming that it provides the identifier to retrieve the created Director resource. 
-		return Response
-				.created(UriBuilder.fromResource(DirectorWS.class).path(String.valueOf(director.getId())).build())
-				.build();
-	}
-
+	
 	@GET
-	@Path("/{id:[0-9][0-9]*}")
-	public Response findById(@PathParam("id") final Long id) {
-		//TODO: retrieve the director 
-		Director director = null;
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/{id}")
+	public Response findById(@PathParam("id") final int id) {
+		 
+		Director director = directorDAO.getDirector(id);
 		if (director == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
-		return Response.ok(director).build();
+		return Response.status(200).entity(director).build();
 	}
 
+	
+	@POST
+	public Response save(final Director director) {
+		directorDAO.save(director);
+		return Response.status(200).entity(director).build();
+	}
+
+
+
 	@PUT
-	@Path("/{id:[0-9][0-9]*}")
-	public Response update(@PathParam("id") Long id, final Director director) {
-		//TODO: process the given director 
-		return Response.noContent().build();
+	@Path("/{id}")
+	public Response update(@PathParam("id") int id, final Director director) {
+		directorDAO.update(director);
+		return Response.status(200).entity(director).build();
 	}
 
 	@DELETE
-	@Path("/{id:[0-9][0-9]*}")
-	public Response deleteById(@PathParam("id") final Long id) {
-		//TODO: process the director matching by the given id 
-		return Response.noContent().build();
+	@Path("/{id}")
+	public Response deleteById(@PathParam("id") final int id) {
+		directorDAO.delete(id);
+		return Response.status(200).build();
 	}
-	*/
+	
 
 }

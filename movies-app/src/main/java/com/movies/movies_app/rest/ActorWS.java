@@ -1,7 +1,6 @@
 package com.movies.movies_app.rest;
 
 import java.util.List;
-
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -39,40 +38,37 @@ public class ActorWS {
 		List<Actor> actor = actorDAO.getAllActors();
 		return Response.status(200).entity(actor).build();
 	}
-
-	/*
-	@POST
-	public Response create(final Actor actor) {
-		//TODO: process the given actor 
-		//here we use Actor#getId(), assuming that it provides the identifier to retrieve the created Actor resource. 
-		return Response
-				.created(UriBuilder.fromResource(ActorWS.class).path(String.valueOf(actor.getId())).build())
-				.build();
-	}
-
+	
 	@GET
-	@Path("/{id:[0-9][0-9]*}")
-	public Response findById(@PathParam("id") final Long id) {
-		//TODO: retrieve the actor 
-		Actor actor = null;
+	@Produces({MediaType.APPLICATION_JSON})
+	@Path("/{id}")
+	public Response findById(@PathParam("id") int id) {
+		Actor actor = actorDAO.getActor(id);
+		
 		if (actor == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
-		return Response.ok(actor).build();
+		return Response.status(200).entity(actor).build();
+	}
+	
+	@DELETE
+	@Path("/{id}")
+	public Response deleteActorById(@PathParam("id") int id) {
+		actorDAO.delete(id);
+		return Response.status(200).build();
+	}
+	
+	@POST
+	public Response save(final Actor actor) {
+		actorDAO.save(actor);
+		return Response.status(200).entity(actor).build();
 	}
 
 	@PUT
-	@Path("/{id:[0-9][0-9]*}")
-	public Response update(@PathParam("id") Long id, final Actor actor) {
-		//TODO: process the given actor 
-		return Response.noContent().build();
+	@Path("/{id}")
+	public Response update(@PathParam("id") int id, final Actor actor) {
+		actorDAO.update(actor);
+		return Response.status(200).entity(actor).build();
 	}
-
-	@DELETE
-	@Path("/{id:[0-9][0-9]*}")
-	public Response deleteById(@PathParam("id") final Long id) {
-		//TODO: process the actor matching by the given id 
-		return Response.noContent().build();
-	}
-	 */
+	
 }
