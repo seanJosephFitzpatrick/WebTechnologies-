@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.movies.movies_app.test.ActorTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.348 sec <<< FAILURE! - in com.movies.movies_app.test.ActorTest
-com.movies.movies_app.test.ActorTest  Time elapsed: 0.347 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.377 sec <<< FAILURE! - in com.movies.movies_app.test.ActorTest
+com.movies.movies_app.test.ActorTest  Time elapsed: 0.377 sec  <<< ERROR!
 java.lang.RuntimeException: Could not create new instance of class org.jboss.arquillian.test.impl.EventTestRunnerAdaptor
 	at org.jboss.arquillian.core.spi.Validate.notNull(Validate.java:44)
 	at org.jboss.arquillian.container.impl.ContainerImpl.<init>(ContainerImpl.java:71)

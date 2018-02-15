@@ -21,7 +21,6 @@
    <defaultProtocol type="Servlet 3.0" />
    <container qualifier="jboss7" default="true">
     <configuration>
-    	<property name="jbosshome">C:\Users\A00248114\Desktop\jboss-as-7.1.0.Final</property>
       <property name="managementAddress">127.0.0.1</property>
       <property name="managementPort">9999</property>
     </configuration>

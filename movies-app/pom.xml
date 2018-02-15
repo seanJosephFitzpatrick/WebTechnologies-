@@ -29,7 +29,7 @@
         <testng.version>6.8.8</testng.version>
         <java.version>1.7</java.version>
         <surefire.version>2.17</surefire.version>
-        <jacoco.version>0.7.2.201409121644</jacoco.version>
+        <jacoco.version>0.7.7.201606060606</jacoco.version>
 	</properties>
 
 
@@ -61,10 +61,22 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-arquillian-container-remote</artifactId>
+                <version>8.0.0.Final</version>
+                <scope>test</scope>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
+	        <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.9.9</version>
+        </dependency>
 
 		<!-- First declare the APIs we depend on and need for compilation. All 
 			of them are provided by JBoss AS 7 -->
@@ -196,9 +208,14 @@
 		<dependency>
 			<groupId>org.jacoco</groupId>
 			<artifactId>org.jacoco.core</artifactId>
-			<version>0.6.4.201312101107</version>
+			<version>0.7.6.201602180812</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>[4.2.1]</version>
+        </dependency>
 		<dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
@@ -209,16 +226,26 @@
     <artifactId>jxl</artifactId>
     <version>2.6</version>
 </dependency>
+<dependency>
+    <groupId>org.webjars</groupId>
+    <artifactId>jquery</artifactId>
+    <version>3.3.1</version>
+</dependency>
+
+<dependency>
+    <groupId>org.jboss.arquillian.protocol</groupId>
+    <artifactId>arquillian-protocol-servlet</artifactId>
+</dependency>
 		<!-- <profile> <id>jbossas-remote-60</id> <dependencies> <dependency> <groupId>org.jboss.arquillian.container</groupId> 
 			<artifactId>arquillian-jbossas-remote-60</artifactId> <version>1.0.0.Alpha2</version> 
 			</dependency> </dependencies> </profile> -->
-		<dependency>
+		<!--  <dependency>
 			<groupId>org.jboss.arquillian</groupId>
 			<artifactId>arquillian-bom</artifactId>
 			<version>1.0.3.Final</version>
 			<scope>import</scope>
 			<type>pom</type>
-		</dependency> 
+		</dependency> -->
 	</dependencies>
 
 	<build>
@@ -279,6 +306,16 @@
 				<groupId>org.jboss.as.plugins</groupId>
 				<artifactId>jboss-as-maven-plugin</artifactId>
 				<version>7.0.2.Final</version>
+				<configuration>
+                <execute-commands>
+                    <commands>
+                        <command>deploy target/core-services.war</command>
+                    </commands>
+                </execute-commands>
+                <hostname>localhost</hostname>
+                <username>{your username}</username>
+                <password>{your passwprd}</password>
+            </configuration>
 			</plugin>
 			 <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -323,13 +360,13 @@
 				JBoss AS instance -->
 			<!-- Run with: mvn clean test -Parq-jbossas-remote -->
 			<id>arq-jbossas-remote</id>
-			<!--<dependencies>
+			<dependencies>
 				<dependency>
 					<groupId>org.jboss.as</groupId>
 					<artifactId>jboss-as-arquillian-container-remote</artifactId>
 					<scope>test</scope>
 				</dependency>
-			</dependencies>-->
+			</dependencies>
 		</profile>
 		<profile>
 			<!-- The default profile skips all tests, though you can tune it to run 
@@ -356,6 +393,9 @@
 
 		<profile>
 			<id>arquillian-jbossas-remote_7</id>
+			<activation>
+            	<activeByDefault>true</activeByDefault>
+            </activation>
 			<dependencies>
 				<dependency>
 					<groupId>org.jboss.as</groupId>
@@ -418,6 +458,9 @@
 
 		<profile>
 			<id>jbossas-remote-7</id>
+			<activation>
+               <activeByDefault>true</activeByDefault>
+              </activation>
 			<dependencies>
 				<dependency>
 					<groupId>org.jboss.spec</groupId>
