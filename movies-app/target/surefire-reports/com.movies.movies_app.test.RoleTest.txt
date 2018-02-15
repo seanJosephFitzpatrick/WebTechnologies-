@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.movies.movies_app.test.RoleTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 15.212 sec <<< FAILURE! - in com.movies.movies_app.test.RoleTest
-com.movies.movies_app.test.RoleTest  Time elapsed: 15.212 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 15.218 sec <<< FAILURE! - in com.movies.movies_app.test.RoleTest
+com.movies.movies_app.test.RoleTest  Time elapsed: 15.218 sec  <<< ERROR!
 org.jboss.arquillian.container.spi.client.container.DeploymentException: Cannot deploy: TestRole.jar
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:83)
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:64)

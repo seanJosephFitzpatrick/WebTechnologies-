@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.movies.movies_app.test.MovieTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 15.237 sec <<< FAILURE! - in com.movies.movies_app.test.MovieTest
-com.movies.movies_app.test.MovieTest  Time elapsed: 15.237 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 15.206 sec <<< FAILURE! - in com.movies.movies_app.test.MovieTest
+com.movies.movies_app.test.MovieTest  Time elapsed: 15.206 sec  <<< ERROR!
 org.jboss.arquillian.container.spi.client.container.DeploymentException: Cannot deploy: TestMovie.jar
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:83)
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:64)

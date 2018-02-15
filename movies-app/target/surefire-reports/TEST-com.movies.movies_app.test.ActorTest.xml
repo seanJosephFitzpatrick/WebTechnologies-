@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.movies.movies_app.test.ActorTest" time="16.464" tests="1" errors="1" skipped="0" failures="0">
+<testsuite name="com.movies.movies_app.test.ActorTest" time="16.369" tests="1" errors="1" skipped="0" failures="0">
   <properties>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="JOB_NAME" value="githubproject"/>
@@ -11,7 +11,7 @@
     <property name="POM_ARTIFACTID" value="movies-app"/>
     <property name="os.name" value="Windows 7"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_45\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_45\jre\classes"/>
-    <property name="EXECUTOR_NUMBER" value="1"/>
+    <property name="EXECUTOR_NUMBER" value="0"/>
     <property name="sun.desktop" value="windows"/>
     <property name="PATHEXT" value=".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
@@ -27,8 +27,8 @@
     <property name="PROMPT" value="$P$G"/>
     <property name="user.language" value="en"/>
     <property name="JOB_BASE_NAME" value="githubproject"/>
-    <property name="RUN_CHANGES_DISPLAY_URL" value="http://unconfigured-jenkins-location/job/githubproject/4/display/redirect?page=changes"/>
-    <property name="BUILD_DISPLAY_NAME" value="#4"/>
+    <property name="RUN_CHANGES_DISPLAY_URL" value="http://unconfigured-jenkins-location/job/githubproject/5/display/redirect?page=changes"/>
+    <property name="BUILD_DISPLAY_NAME" value="#5"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_45\jre\bin"/>
     <property name="VS110COMNTOOLS" value="C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools\"/>
     <property name="LOCALAPPDATA" value="C:\Users\A00248114\AppData\Local"/>
@@ -40,7 +40,7 @@
     <property name="NODE_NAME" value="master"/>
     <property name="PROCESSOR_ARCHITEW6432" value="AMD64"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_45\jre\lib\endorsed"/>
-    <property name="BUILD_ID" value="4"/>
+    <property name="BUILD_ID" value="5"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="file.encoding.pkg" value="sun.io"/>
@@ -56,7 +56,7 @@
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_45\jre"/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="os.version" value="6.1"/>
-    <property name="RUN_DISPLAY_URL" value="http://unconfigured-jenkins-location/job/githubproject/4/display/redirect"/>
+    <property name="RUN_DISPLAY_URL" value="http://unconfigured-jenkins-location/job/githubproject/5/display/redirect"/>
     <property name="POM_VERSION" value="0.0.1-SNAPSHOT"/>
     <property name="TMP" value="C:\Users\A00248~4\AppData\Local\Temp"/>
     <property name="path.separator" value=";"/>
@@ -81,7 +81,7 @@
     <property name="VBOX_MSI_INSTALL_PATH" value="C:\Program Files\Oracle\VirtualBox\"/>
     <property name="user.home" value="C:\Users\A00248114"/>
     <property name="PUBLIC" value="C:\Users\Public"/>
-    <property name="BUILD_TAG" value="jenkins-githubproject-4"/>
+    <property name="BUILD_TAG" value="jenkins-githubproject-5"/>
     <property name="JENKINS_SERVER_COOKIE" value="95a3829214ac14dd"/>
     <property name="ProgramData" value="C:\ProgramData"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -94,7 +94,7 @@
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="maven.home" value="C:\Users\A00248114\Desktop\apache-maven-3.5.2"/>
     <property name="java.class.path" value="C:\Users\A00248114\.jenkins\plugins\maven-plugin\WEB-INF\lib\maven35-agent-1.12-alpha-1.jar;C:\Users\A00248114\Desktop\apache-maven-3.5.2\boot\plexus-classworlds-2.5.2.jar;C:\Users\A00248114\Desktop\apache-maven-3.5.2/conf/logging"/>
-    <property name="sun.java.command" value="jenkins.maven3.agent.Maven35Main C:\Users\A00248114\Desktop\apache-maven-3.5.2\ C:\Users\A00248114\.jenkins\war\WEB-INF\lib\remoting-3.14.jar C:\Users\A00248114\.jenkins\plugins\maven-plugin\WEB-INF\lib\maven35-interceptor-1.12-alpha-1.jar C:\Users\A00248114\.jenkins\plugins\maven-plugin\WEB-INF\lib\maven3-interceptor-commons-1.12-alpha-1.jar 59857"/>
+    <property name="sun.java.command" value="jenkins.maven3.agent.Maven35Main C:\Users\A00248114\Desktop\apache-maven-3.5.2\ C:\Users\A00248114\.jenkins\war\WEB-INF\lib\remoting-3.14.jar C:\Users\A00248114\.jenkins\plugins\maven-plugin\WEB-INF\lib\maven35-interceptor-1.12-alpha-1.jar C:\Users\A00248114\.jenkins\plugins\maven-plugin\WEB-INF\lib\maven3-interceptor-commons-1.12-alpha-1.jar 60041"/>
     <property name="Path" value="C:\Program Files\Java\jdk1.8.0_45/bin;C:\Program Files (x86)\Haskell\bin;C:\Program Files (x86)\Haskell Platform\2011.2.0.1\lib\extralibs\bin;C:\Program Files (x86)\Haskell Platform\2011.2.0.1\bin;C:\ProgramData\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\Program Files (x86)\GNU\GnuPG\pub;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\MATLAB7\bin\win32;C:\Program Files\Java\jdk1.8.0_45\bin"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="PROCESSOR_ARCHITECTURE" value="x86"/>
@@ -122,12 +122,12 @@
     <property name="line.separator" value="&#10;"/>
     <property name="MAVEN_HOME" value="C:\Users\A00248114\Desktop\apache-maven-3.5.2\"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="BUILD_NUMBER" value="4"/>
+    <property name="BUILD_NUMBER" value="5"/>
     <property name="PROCESSOR_REVISION" value="5e03"/>
     <property name="GIT_BRANCH" value="origin/development"/>
     <property name="ProgramW6432" value="C:\Program Files"/>
     <property name="windir" value="C:\windows"/>
-    <property name="GIT_COMMIT" value="939d9965e25dd0626b0790b93f78a2598dbfde67"/>
+    <property name="GIT_COMMIT" value="1ab1b5b7aab77096ed177889fee5d5fd5ac5cdda"/>
     <property name="=C:" value="C:\Users\A00248114\Desktop"/>
     <property name="file.encoding" value="Cp1252"/>
     <property name="SystemDrive" value="C:"/>
@@ -138,7 +138,7 @@
     <property name="PSModulePath" value="C:\windows\system32\WindowsPowerShell\v1.0\Modules\"/>
     <property name="GIT_URL" value="https://github.com/seanJosephFitzpatrick/WebTechnologies-"/>
   </properties>
-  <testcase name="com.movies.movies_app.test.ActorTest" classname="com.movies.movies_app.test.ActorTest" time="16.464">
+  <testcase name="com.movies.movies_app.test.ActorTest" classname="com.movies.movies_app.test.ActorTest" time="16.369">
     <error message="Cannot deploy: TestActor.jar" type="org.jboss.arquillian.container.spi.client.container.DeploymentException">org.jboss.arquillian.container.spi.client.container.DeploymentException: Cannot deploy: TestActor.jar
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:83)
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:64)
@@ -338,7 +338,7 @@ Caused by: java.net.ConnectException: JBAS012144: Could not connect to remote://
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
 </error>
-    <system-err><![CDATA[Feb 15, 2018 10:45:16 AM org.jboss.arquillian.container.impl.MapObject populate
+    <system-err><![CDATA[Feb 15, 2018 10:51:38 AM org.jboss.arquillian.container.impl.MapObject populate
 WARNING: Configuration contain properties not supported by the backing object org.jboss.as.arquillian.container.remote.RemoteContainerConfiguration
 Unused property entries: {jbossHome=/path/to/jboss/as}
 Supported property names: [managementAddress, password, managementPort, username]
