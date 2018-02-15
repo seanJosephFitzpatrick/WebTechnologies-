@@ -323,13 +323,13 @@
 				JBoss AS instance -->
 			<!-- Run with: mvn clean test -Parq-jbossas-remote -->
 			<id>arq-jbossas-remote</id>
-			<dependencies>
+			<!--<dependencies>
 				<dependency>
 					<groupId>org.jboss.as</groupId>
 					<artifactId>jboss-as-arquillian-container-remote</artifactId>
 					<scope>test</scope>
 				</dependency>
-			</dependencies>
+			</dependencies>-->
 		</profile>
 		<profile>
 			<!-- The default profile skips all tests, though you can tune it to run 
