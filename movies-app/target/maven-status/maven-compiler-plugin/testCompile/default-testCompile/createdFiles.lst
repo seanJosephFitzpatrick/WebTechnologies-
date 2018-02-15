@@ -1,0 +1,7 @@
+com\movies\movies_app\test\ActorTest.class
+com\movies\movies_app\test\MovieDirectorTest.class
+com\movies\movies_app\test\MovieTest.class
+com\movies\movies_app\test\MoviesGenreTest.class
+com\movies\movies_app\test\RoleTest.class
+com\movies\movies_app\test\utils\UtilsDAO.class
+com\movies\movies_app\test\DirectorTest.class

@@ -10,7 +10,7 @@
    <name>Java EE 6 webapp project</name>
    <description>A starter Java EE 6 webapp project for use on JBoss AS 7, generated from the jboss-javaee6-webapp archetype</description>
  
-<properties>
+	<properties>
 		<!-- Explicitly declaring the source encoding eliminates the following 
 			message: -->
 		<!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered 
@@ -21,6 +21,8 @@
 			enable third-party plugin if using Maven < 2.1) -->
 		<maven.build.timestamp.format>yyyyMMdd'T'HHmmss</maven.build.timestamp.format>
 		<!-- Specify the JBoss AS directory to be the JBOSS_HOME environment variable -->
+   		<maven.compiler.source>1.7</maven.compiler.source>
+  		<maven.compiler.target>1.7</maven.compiler.target>
 		<jboss.home>${env.JBOSS_HOME}</jboss.home>
 		<version.jboss.bom>1.0.7.Final</version.jboss.bom>
 		<maven.test.skip>false</maven.test.skip>
@@ -202,6 +204,11 @@
             <artifactId>httpclient</artifactId>
             <version>[4.2.1]</version>
         </dependency>
+		<dependency>
+    <groupId>jexcelapi</groupId>
+    <artifactId>jxl</artifactId>
+    <version>2.6</version>
+</dependency>
 		<!-- <profile> <id>jbossas-remote-60</id> <dependencies> <dependency> <groupId>org.jboss.arquillian.container</groupId> 
 			<artifactId>arquillian-jbossas-remote-60</artifactId> <version>1.0.0.Alpha2</version> 
 			</dependency> </dependencies> </profile> -->
@@ -218,6 +225,7 @@
 		<!-- Maven will append the version to the finalName (which is the name 
 			given to the generated war, and hence the context root) -->
 		<finalName>${project.artifactId}</finalName>
+	
 		<plugins>
 		<!-- Plugin for JaCoCo Code Coverage for Arquillian Tests -->
 		<!-- 	<plugin>
@@ -304,7 +312,9 @@
                     </execution>
                 </executions>
             </plugin>
+             
 		</plugins>
+		
 	</build>
 
 	<profiles>
@@ -336,10 +346,11 @@
 						<artifactId>maven-surefire-plugin</artifactId>
 						<version>2.4.3</version>
 						<configuration>
-							<skip>true</skip>
+							<skip>false</skip>
 						</configuration>
 					</plugin>
 				</plugins>
+				
 			</build>
 		</profile>
 
@@ -433,6 +444,7 @@
 					<version>1.0.0.CR4</version>
 					<scope>test</scope>
 				</dependency>
+
 				<dependency>
 					<groupId>org.jboss.arquillian.protocol</groupId>
 					<artifactId>arquillian-protocol-servlet</artifactId>
