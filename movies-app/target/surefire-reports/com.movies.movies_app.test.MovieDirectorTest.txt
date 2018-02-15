@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.movies.movies_app.test.MovieDirectorTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 15.269 sec <<< FAILURE! - in com.movies.movies_app.test.MovieDirectorTest
-com.movies.movies_app.test.MovieDirectorTest  Time elapsed: 15.269 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 15.255 sec <<< FAILURE! - in com.movies.movies_app.test.MovieDirectorTest
+com.movies.movies_app.test.MovieDirectorTest  Time elapsed: 15.255 sec  <<< ERROR!
 org.jboss.arquillian.container.spi.client.container.DeploymentException: Cannot deploy: TestMovieDirector.jar
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:83)
 	at org.jboss.as.arquillian.container.ArchiveDeployer.deployInternal(ArchiveDeployer.java:64)
@@ -95,7 +95,7 @@ org.jboss.arquillian.container.spi.client.container.DeploymentException: Cannot 
 	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
-Caused by: java.net.ConnectException: JBAS012144: Could not connect to remote://127.0.0.1:9999. The connection timed out
+Caused by: java.net.ConnectException: JBAS012144: Could not connect to remote://127.0.0.1:8180. The connection timed out
 	at org.jboss.as.protocol.ProtocolConnectionUtils.connectSync(ProtocolConnectionUtils.java:130)
 	at org.jboss.as.protocol.ProtocolConnectionManager$EstablishingConnection.connect(ProtocolConnectionManager.java:256)
 	at org.jboss.as.protocol.ProtocolConnectionManager.connect(ProtocolConnectionManager.java:70)

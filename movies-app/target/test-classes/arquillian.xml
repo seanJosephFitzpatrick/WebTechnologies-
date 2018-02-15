@@ -22,7 +22,7 @@
    <container qualifier="jboss7" default="true">
     <configuration>
       <property name="managementAddress">127.0.0.1</property>
-      <property name="managementPort">8180</property>
+      <property name="managementPort">8181</property>
     </configuration>
   </container>
 
