@@ -70,7 +70,9 @@ public class MovieWS {
 
 	@PUT
 	@Path("/{id}")
-	public Response update(@PathParam("id") int id, final Movie movie) {
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response update(Movie movie) {
 		movieDAO.update(movie);
 		return Response.status(200).entity(movie).build();
 	}
@@ -79,7 +81,7 @@ public class MovieWS {
 	@Path("/{id}")
 	public Response deleteById(@PathParam("id") final int id) {
 		movieDAO.delete(id);
-		return Response.status(200).build();
+		return Response.status(204).build();
 	}
 	
 

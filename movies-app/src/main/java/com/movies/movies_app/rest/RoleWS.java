@@ -42,19 +42,16 @@ public class RoleWS {
 		return Response.status(200).entity(role).build();
 	}
 	
-	/*
 	@POST
-	public Response create(final Role role) {
-		//TODO: process the given role 
-		//here we use Role#getId(), assuming that it provides the identifier to retrieve the created Role resource. 
-		return Response.created(UriBuilder.fromResource(RoleWS.class).path(String.valueOf(role.getId())).build())
-				.build();
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response create(Role role) {
+		roleDAO.save(role);
+		return Response.status(201).entity(role).build();
 	}
 
 	@GET
-	@Path("/{id:[0-9][0-9]*}")
+	@Path("/{id}")
 	public Response findById(@PathParam("id") final Long id) {
-		//TODO: retrieve the role 
 		Role role = null;
 		if (role == null) {
 			return Response.status(Status.NOT_FOUND).build();
@@ -63,18 +60,19 @@ public class RoleWS {
 	}
 
 	@PUT
-	@Path("/{id:[0-9][0-9]*}")
-	public Response update(@PathParam("id") Long id, final Role role) {
-		//TODO: process the given role 
-		return Response.noContent().build();
+	@Path("/{id}")
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response update(Role role) {
+		roleDAO.update(role);
+		return Response.status(200).entity(role).build();
 	}
 
 	@DELETE
-	@Path("/{id:[0-9][0-9]*}")
-	public Response deleteById(@PathParam("id") final Long id) {
-		//TODO: process the role matching by the given id 
-		return Response.noContent().build();
+	@Path("/{id}")
+	public Response deleteById(int id) {
+		roleDAO.delete(id);
+		return Response.status(204).build();
 	}
-	*/
 
 }

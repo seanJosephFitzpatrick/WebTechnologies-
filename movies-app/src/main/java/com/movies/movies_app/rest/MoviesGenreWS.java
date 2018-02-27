@@ -40,7 +40,6 @@ public class MoviesGenreWS {
 		
 	}
 	
-	/*
 	@POST
 	public Response create(final MoviesGenre moviesgenre) {
 		//TODO: process the given moviesgenre 
@@ -62,18 +61,19 @@ public class MoviesGenreWS {
 	}
 
 	@PUT
-	@Path("/{id:[0-9][0-9]*}")
-	public Response update(@PathParam("id") Long id, final MoviesGenre moviesgenre) {
-		//TODO: process the given moviesgenre 
-		return Response.noContent().build();
+	@Path("/{id}")
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response update(MoviesGenre moviesgenre) {
+		moviesGenreDAO.update(moviesgenre);
+		return Response.status(200).entity(moviesgenre).build();
 	}
 
 	@DELETE
-	@Path("/{id:[0-9][0-9]*}")
-	public Response deleteById(@PathParam("id") final Long id) {
-		//TODO: process the moviesgenre matching by the given id 
-		return Response.noContent().build();
+	@Path("/{id}")
+	public Response deleteById(int id) {
+		moviesGenreDAO.delete(id);
+		return Response.status(204).build();
 	}
-	*/
 
 }

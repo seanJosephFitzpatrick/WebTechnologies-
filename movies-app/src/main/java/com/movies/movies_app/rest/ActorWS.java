@@ -44,7 +44,6 @@ public class ActorWS {
 	@Path("/{id}")
 	public Response findById(@PathParam("id") int id) {
 		Actor actor = actorDAO.getActor(id);
-		
 		if (actor == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
@@ -53,20 +52,24 @@ public class ActorWS {
 	
 	@DELETE
 	@Path("/{id}")
-	public Response deleteActorById(@PathParam("id") int id) {
+	public Response deleteActorById(int id) {
 		actorDAO.delete(id);
-		return Response.status(200).build();
+		return Response.status(204).build();
 	}
 	
 	@POST
-	public Response save(final Actor actor) {
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response saveActor(Actor actor) {
 		actorDAO.save(actor);
-		return Response.status(200).entity(actor).build();
+		return Response.status(201).entity(actor).build();
 	}
 
 	@PUT
 	@Path("/{id}")
-	public Response update(@PathParam("id") int id, final Actor actor) {
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response update(Actor actor) {
 		actorDAO.update(actor);
 		return Response.status(200).entity(actor).build();
 	}

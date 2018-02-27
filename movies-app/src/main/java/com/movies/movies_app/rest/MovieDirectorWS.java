@@ -39,7 +39,6 @@ public class MovieDirectorWS {
 			return Response.status(200).entity(movieDirector).build();
 	}
 
-	/*
 	@POST
 	public Response create(final MovieDirector moviesdirector) {
 		//TODO: process the given moviesdirector 
@@ -60,27 +59,19 @@ public class MovieDirectorWS {
 		return Response.ok(moviesdirector).build();
 	}
 
-	@GET
-	public List<MovieDirector> listAll(@QueryParam("start") final Integer startPosition,
-			@QueryParam("max") final Integer maxResult) {
-		//TODO: retrieve the moviesdirectors 
-		final List<MovieDirector> moviesdirectors = null;
-		return moviesdirectors;
-	}
-
 	@PUT
-	@Path("/{id:[0-9][0-9]*}")
-	public Response update(@PathParam("id") Long id, final MovieDirector moviesdirector) {
-		//TODO: process the given moviesdirector 
-		return Response.noContent().build();
+	@Path("/{id}")
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response update(MovieDirector movieDirector) {
+		movieDirectorDAO.update(movieDirector);
+		return Response.status(200).entity(movieDirector).build();
 	}
 
 	@DELETE
-	@Path("/{id:[0-9][0-9]*}")
-	public Response deleteById(@PathParam("id") final Long id) {
-		//TODO: process the moviesdirector matching by the given id 
-		return Response.noContent().build();
+	@Path("/{id}")
+	public Response deleteById(int id) {
+		movieDirectorDAO.delete(id);
+		return Response.status(204).build();
 	}
-	*/
-
 }

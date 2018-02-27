@@ -61,7 +61,9 @@ public class DirectorWS {
 
 	@PUT
 	@Path("/{id}")
-	public Response update(@PathParam("id") int id, final Director director) {
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response update(Director director) {
 		directorDAO.update(director);
 		return Response.status(200).entity(director).build();
 	}
@@ -70,7 +72,7 @@ public class DirectorWS {
 	@Path("/{id}")
 	public Response deleteById(@PathParam("id") final int id) {
 		directorDAO.delete(id);
-		return Response.status(200).build();
+		return Response.status(204).build();
 	}
 	
 
