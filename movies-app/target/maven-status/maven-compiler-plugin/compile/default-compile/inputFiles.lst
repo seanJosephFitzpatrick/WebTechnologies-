@@ -7,12 +7,12 @@ C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\
 C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\model\MoviesGenre.java
 C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\model\Movie.java
 C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\data\MoviesGenreDAO.java
+C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\model\MoviesDirector.java
 C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\data\ActorDAO.java
+C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\data\MovieDirectorDAO.java
 C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\util\Resources.java
 C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\model\Actor.java
-C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\data\MovieDirectorDAO.java
 C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\rest\DirectorWS.java
-C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\model\MovieDirector.java
 C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\data\DirectorDAO.java
 C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\data\MovieDAO.java
 C:\Users\A00248114\Documents\WebTechProject\WebTechnologies\movies-app\src\main\java\com\movies\movies_app\rest\MovieWS.java

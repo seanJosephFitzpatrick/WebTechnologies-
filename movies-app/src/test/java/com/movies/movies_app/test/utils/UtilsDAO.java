@@ -27,7 +27,7 @@ public class UtilsDAO {
 	}
 	
 	public void deleteTableMovieDirector(){
-		em.createQuery("DELETE FROM MovieDirector").executeUpdate();
+		em.createQuery("DELETE FROM MoviesDirector").executeUpdate();
 		em.createNativeQuery("ALTER TABLE movies_directors AUTO_INCREMENT=1")
 		.executeUpdate();
 		

@@ -39,6 +39,8 @@ public class MovieWS {
 	
 	
 	@POST
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
 	public Response save(final Movie movie) {
 		movieDAO.save(movie);
 		return Response.status(200).entity(movie).build();
@@ -46,10 +48,9 @@ public class MovieWS {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("id/{id}")
+	@Path("/{id}")
 	public Response findById(@PathParam("id") final int id) {
 		Movie movie = movieDAO.getMovie(id);
-		
 		if (movie == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}

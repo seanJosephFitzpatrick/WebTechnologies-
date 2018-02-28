@@ -1,6 +1,6 @@
 com\movies\movies_app\model\Director_.class
 com\movies\movies_app\model\MoviesGenre_.class
+com\movies\movies_app\model\MoviesDirector_.class
 com\movies\movies_app\model\Actor_.class
 com\movies\movies_app\model\Movie_.class
-com\movies\movies_app\model\MovieDirector_.class
 com\movies\movies_app\model\Role_.class

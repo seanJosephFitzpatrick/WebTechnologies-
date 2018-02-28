@@ -14,6 +14,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import com.movies.movies_app.data.DirectorDAO;
 import com.movies.movies_app.model.Director;
+import com.movies.movies_app.model.MoviesDirector;
+import com.movies.movies_app.model.MoviesGenre;
+import com.movies.movies_app.model.Role;
 import com.movies.movies_app.rest.DirectorWS;
 import com.movies.movies_app.rest.JaxRsActivator;
 import com.movies.movies_app.test.utils.UtilsDAO;
@@ -26,10 +29,8 @@ public class DirectorTest {
 		return ShrinkWrap
 				.create(JavaArchive.class, "TestDirector.jar")
 				.addClasses(DirectorDAO.class, Director.class,
-						JaxRsActivator.class, UtilsDAO.class, DirectorWS.class)
-			//	.addPackage(Actor.class.getPackage())
-			//	.addPackage(ActorDAO.class.getPackage())
-						//this line will pick up the production db
+						JaxRsActivator.class, UtilsDAO.class, DirectorWS.class,
+						MoviesDirector.class, MoviesGenre.class, Role.class)
 				.addAsManifestResource("META-INF/persistence.xml",
 						"persistence.xml")
 				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
@@ -47,9 +48,6 @@ public class DirectorTest {
 	 
 	@Before
 	public void setUp() {
-		//this function means that we start with an empty table
-		//And add one actors
-		//it should be possible to test with an in memory db for efficiency
 		utilsDAO.deleteTableDirector();
 		Director director = new Director();
 		director.setId(33799);

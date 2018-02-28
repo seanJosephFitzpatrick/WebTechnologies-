@@ -14,6 +14,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import com.movies.movies_app.data.ActorDAO;
 import com.movies.movies_app.model.Actor;
+import com.movies.movies_app.model.MoviesDirector;
+import com.movies.movies_app.model.MoviesGenre;
+import com.movies.movies_app.model.Role;
 import com.movies.movies_app.rest.ActorWS;
 import com.movies.movies_app.rest.JaxRsActivator;
 import com.movies.movies_app.test.utils.UtilsDAO;
@@ -26,10 +29,8 @@ public class ActorTest {
 		return ShrinkWrap
 				.create(JavaArchive.class, "TestActor.jar")
 				.addClasses(ActorDAO.class, Actor.class,
-						JaxRsActivator.class, UtilsDAO.class, ActorWS.class)
-			//	.addPackage(Actor.class.getPackage())
-			//	.addPackage(ActorDAO.class.getPackage())
-						//this line will pick up the production db
+						JaxRsActivator.class, UtilsDAO.class, ActorWS.class,
+						MoviesDirector.class, MoviesGenre.class, Role.class)
 				.addAsManifestResource("META-INF/persistence.xml",
 						"persistence.xml")
 				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
@@ -47,9 +48,6 @@ public class ActorTest {
 	 
 	@Before
 	public void setUp() {
-		//this function means that we start with an empty table
-		//And add one actors
-		//it should be possible to test with an in memory db for efficiency
 		utilsDAO.deleteTableActor();
 		Actor actor = new Actor();
 		actor.setId(745996);

@@ -4,7 +4,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -19,7 +18,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 import com.movies.movies_app.data.MovieDirectorDAO;
-import com.movies.movies_app.model.MovieDirector;
+import com.movies.movies_app.model.MoviesDirector;
 
 @Path("/moviesdirectors")
 @Stateless
@@ -35,24 +34,23 @@ public class MovieDirectorWS {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response listAll(@QueryParam("start") final Integer startPosition,
 			@QueryParam("max") final Integer maxResult) {
-			List<MovieDirector> movieDirector = movieDirectorDAO.getAllMovieDirectors();
+			List<MoviesDirector> movieDirector = movieDirectorDAO.getAllMovieDirectors();
 			return Response.status(200).entity(movieDirector).build();
 	}
 
 	@POST
-	public Response create(final MovieDirector moviesdirector) {
-		//TODO: process the given moviesdirector 
-		//here we use MoviesDirector#getId(), assuming that it provides the identifier to retrieve the created MoviesDirector resource. 
-		return Response.created(
-				UriBuilder.fromResource(MovieDirectorWS.class).path(String.valueOf(moviesdirector.getId())).build())
-				.build();
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response create(final MoviesDirector moviesdirector) {
+		movieDirectorDAO.save(moviesdirector);
+		return Response.status(201).entity(moviesdirector).build();
 	}
 
 	@GET
-	@Path("/{id:[0-9][0-9]*}")
-	public Response findById(@PathParam("id") final Long id) {
-		//TODO: retrieve the moviesdirector 
-		MovieDirector moviesdirector = null;
+	@Path("/{id}")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response findById(@PathParam("id") int id) {
+		MoviesDirector moviesdirector = movieDirectorDAO.getMovieDirector(id);
 		if (moviesdirector == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
@@ -63,7 +61,7 @@ public class MovieDirectorWS {
 	@Path("/{id}")
 	@Consumes("application/json")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Response update(MovieDirector movieDirector) {
+	public Response update(MoviesDirector movieDirector) {
 		movieDirectorDAO.update(movieDirector);
 		return Response.status(200).entity(movieDirector).build();
 	}

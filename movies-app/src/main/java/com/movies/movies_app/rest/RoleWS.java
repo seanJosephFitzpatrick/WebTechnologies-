@@ -5,7 +5,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,10 +17,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.UriBuilder;
-
 import com.movies.movies_app.data.RoleDAO;
-import com.movies.movies_app.model.Actor;
 import com.movies.movies_app.model.Role;
 
 @Path("/roles")
@@ -43,6 +39,7 @@ public class RoleWS {
 	}
 	
 	@POST
+	@Consumes("application/json")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Response create(Role role) {
 		roleDAO.save(role);
@@ -51,8 +48,9 @@ public class RoleWS {
 
 	@GET
 	@Path("/{id}")
-	public Response findById(@PathParam("id") final Long id) {
-		Role role = null;
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response findById(@PathParam("id") int id) {
+		Role role = roleDAO.getRole(id);
 		if (role == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}

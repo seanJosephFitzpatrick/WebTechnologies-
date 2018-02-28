@@ -4,7 +4,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import com.movies.movies_app.model.Actor;
 import com.movies.movies_app.model.Director;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;

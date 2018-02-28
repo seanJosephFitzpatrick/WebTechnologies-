@@ -12,11 +12,10 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import com.movies.movies_app.data.ActorDAO;
 import com.movies.movies_app.data.RoleDAO;
-import com.movies.movies_app.model.Actor;
+import com.movies.movies_app.model.MoviesDirector;
+import com.movies.movies_app.model.MoviesGenre;
 import com.movies.movies_app.model.Role;
-import com.movies.movies_app.rest.ActorWS;
 import com.movies.movies_app.rest.JaxRsActivator;
 import com.movies.movies_app.rest.RoleWS;
 import com.movies.movies_app.test.utils.UtilsDAO;
@@ -29,10 +28,8 @@ public class RoleTest {
 		return ShrinkWrap
 				.create(JavaArchive.class, "TestRole.jar")
 				.addClasses(RoleDAO.class, Role.class,
-						JaxRsActivator.class, UtilsDAO.class, RoleWS.class)
-			//	.addPackage(Actor.class.getPackage())
-			//	.addPackage(ActorDAO.class.getPackage())
-						//this line will pick up the production db
+						JaxRsActivator.class, UtilsDAO.class, RoleWS.class, MoviesDirector.class,
+						MoviesGenre.class)
 				.addAsManifestResource("META-INF/persistence.xml",
 						"persistence.xml")
 				.addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
@@ -50,11 +47,9 @@ public class RoleTest {
 	 
 	@Before
 	public void setUp() {
-		//this function means that we start with an empty table
-		//And add one actors
-		//it should be possible to test with an in memory db for efficiency
 		utilsDAO.deleteTableRole();
 		Role role = new Role();
+		role.setId(0);
 		role.setActorId(18826);
 		role.setMovieId(322929);
 		role.setRole("Himself");

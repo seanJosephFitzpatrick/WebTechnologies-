@@ -4,7 +4,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -41,19 +40,18 @@ public class MoviesGenreWS {
 	}
 	
 	@POST
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
 	public Response create(final MoviesGenre moviesgenre) {
-		//TODO: process the given moviesgenre 
-		//here we use MoviesGenre#getId(), assuming that it provides the identifier to retrieve the created MoviesGenre resource. 
-		return Response
-				.created(UriBuilder.fromResource(MoviesGenreWS.class).path(String.valueOf(moviesgenre.getId())).build())
-				.build();
+		moviesGenreDAO.save(moviesgenre);
+		return Response.status(201).entity(moviesgenre).build();
 	}
 
 	@GET
-	@Path("/{id:[0-9][0-9]*}")
-	public Response findById(@PathParam("id") final Long id) {
-		//TODO: retrieve the moviesgenre 
-		MoviesGenre moviesgenre = null;
+	@Path("/{id}")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response findById(@PathParam("id") int id) { 
+		MoviesGenre moviesgenre = moviesGenreDAO.getMoviesGenre(id);
 		if (moviesgenre == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}

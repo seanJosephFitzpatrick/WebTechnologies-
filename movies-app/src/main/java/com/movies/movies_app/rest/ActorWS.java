@@ -4,7 +4,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -17,7 +16,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.UriBuilder;
 import com.movies.movies_app.data.ActorDAO;
 import com.movies.movies_app.model.Actor;
 
@@ -40,8 +38,8 @@ public class ActorWS {
 	}
 	
 	@GET
-	@Produces({MediaType.APPLICATION_JSON})
 	@Path("/{id}")
+	@Produces({MediaType.APPLICATION_JSON})
 	public Response findById(@PathParam("id") int id) {
 		Actor actor = actorDAO.getActor(id);
 		if (actor == null) {
@@ -60,7 +58,7 @@ public class ActorWS {
 	@POST
 	@Consumes("application/json")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Response saveActor(Actor actor) {
+	public Response create(Actor actor) {
 		actorDAO.save(actor);
 		return Response.status(201).entity(actor).build();
 	}
