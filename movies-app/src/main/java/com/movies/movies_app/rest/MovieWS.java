@@ -47,7 +47,7 @@ public class MovieWS {
 	}
 
 	@GET
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON) 
 	@Path("/{id}")
 	public Response findById(@PathParam("id") final int id) {
 		Movie movie = movieDAO.getMovie(id);
