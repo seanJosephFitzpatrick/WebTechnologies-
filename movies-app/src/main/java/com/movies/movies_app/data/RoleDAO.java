@@ -22,7 +22,7 @@ public class RoleDAO {
 	
 	public List<Role> getRolesByName(String name) {
     	Query query=em.createQuery("SELECT w FROM Role AS w "+
-    								"WHERE w.name LIKE ?1");
+    								"WHERE w.role LIKE ?1");
     	query.setParameter(1, "%"+name.toUpperCase()+"%");
         return query.getResultList();
     }

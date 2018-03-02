@@ -18,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import com.movies.movies_app.data.RoleDAO;
+import com.movies.movies_app.model.Movie;
 import com.movies.movies_app.model.Role;
 
 @Path("/roles")
@@ -32,8 +33,7 @@ public class RoleWS {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response listAll(@QueryParam("start") final Integer startPosition,
-			@QueryParam("max") final Integer maxResult) {
+	public Response listAll() {
 		List<Role> role = roleDAO.getAllRoles();
 		return Response.status(200).entity(role).build();
 	}
@@ -65,10 +65,22 @@ public class RoleWS {
 		roleDAO.update(role);
 		return Response.status(200).entity(role).build();
 	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("name/{name}")
+	public Response findByName(@PathParam("name") final String name) {
+		List<Role> role = roleDAO.getRolesByName(name);
+		
+		if (role == null) {
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		return Response.status(200).entity(role).build();
+	}
 
 	@DELETE
 	@Path("/{id}")
-	public Response deleteById(int id) {
+	public Response deleteRoleById(int id) {
 		roleDAO.delete(id);
 		return Response.status(204).build();
 	}

@@ -54,14 +54,14 @@ public class ActorWSTest {
 		utilsDAO.deleteTableActor();
 		Actor actor = new Actor();
 		actor.setId(745996);
-		actor.setFirstName("Amy");
-		actor.setLastName("Paisley");
+		actor.setFirstName("Mathew");
+		actor.setLastName("McConaughey");
 		actor.setGender("F");
 		actorDAO.save(actor);
 		actor = new Actor();
 		actor.setId(28593);
-		actor.setFirstName("Tom");
-		actor.setLastName("Hanks");
+		actor.setFirstName("Leonardo");
+		actor.setLastName("DiCaprio");
 		actor.setGender("M");
 		actorDAO.save(actor);
 	}
@@ -74,8 +74,8 @@ public class ActorWSTest {
 		assertEquals("Data fetch = data persisted", actorList.size(), 2);
 		Actor actor = actorList.get(0);
 		assertEquals(745996, actor.getId());
-		assertEquals("Amy", actor.getFirstName());
-		assertEquals("Paisley", actor.getLastName());
+		assertEquals("Mathew", actor.getFirstName());
+		assertEquals("McConaughey", actor.getLastName());
 		assertEquals("F", actor.getGender());
 	}
 	
@@ -84,8 +84,8 @@ public class ActorWSTest {
 		Response response = actorWS.findById(745996);
 		Actor actor = (Actor) response.getEntity();
 		assertEquals(745996, actor.getId());
-		assertEquals("Amy", actor.getFirstName());
-		assertEquals("Paisley", actor.getLastName());
+		assertEquals("Mathew", actor.getFirstName());
+		assertEquals("McConaughey", actor.getLastName());
 		assertEquals("F", actor.getGender());
 	}
 	
@@ -136,14 +136,14 @@ public class ActorWSTest {
 	
 	@Test
 	public void testSearchActorByName() {
-		Response response = actorWS.findByName("Amy");
+		Response response = actorWS.findByName("Mathew");
 		List<Actor> actorList = (List<Actor>) response.getEntity();
 		assertEquals(HttpStatus.SC_OK, response.getStatus());
 		assertEquals(actorList.size(), 1);
 		Actor actor = actorList.get(0);
 		assertEquals(745996, actor.getId());
-		assertEquals("Amy", actor.getFirstName());
-		assertEquals("Paisley", actor.getLastName());
+		assertEquals("Mathew", actor.getFirstName());
+		assertEquals("McConaughey", actor.getLastName());
 		assertEquals("F", actor.getGender());
 
 	}
