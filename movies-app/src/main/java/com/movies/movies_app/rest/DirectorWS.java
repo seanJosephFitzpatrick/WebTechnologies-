@@ -18,6 +18,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import com.movies.movies_app.data.DirectorDAO;
 import com.movies.movies_app.model.Director;
+import com.movies.movies_app.model.Movie;
 
 @Path("/directors")
 @Stateless
@@ -31,11 +32,22 @@ public class DirectorWS {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response listAll(@QueryParam("start") final Integer startPosition,
-			@QueryParam("max") final Integer maxResult) {
+	public Response listAll() {
 		List<Director> director = directorDAO.getAllDirectors();
 		return Response.status(200).entity(director).build();
 
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("name/{name}")
+	public Response findByName(@PathParam("name") final String name) {
+		List<Director> director = directorDAO.getDirectorsByName(name);
+		
+		if (director == null) {
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		return Response.status(200).entity(director).build();
 	}
 	
 	@GET
@@ -52,9 +64,11 @@ public class DirectorWS {
 
 	
 	@POST
-	public Response save(final Director director) {
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response create(final Director director) {
 		directorDAO.save(director);
-		return Response.status(200).entity(director).build();
+		return Response.status(201).entity(director).build();
 	}
 
 
@@ -70,7 +84,7 @@ public class DirectorWS {
 
 	@DELETE
 	@Path("/{id}")
-	public Response deleteById(@PathParam("id") final int id) {
+	public Response deleteDirectorById(@PathParam("id") final int id) {
 		directorDAO.delete(id);
 		return Response.status(204).build();
 	}
