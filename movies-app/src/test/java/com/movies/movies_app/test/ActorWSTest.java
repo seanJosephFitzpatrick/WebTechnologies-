@@ -134,18 +134,18 @@ public class ActorWSTest {
 		assertEquals("F", actor.getGender());
 	}
 	
-//	@Test
-//	public void testSearchActorByName() {
-//		Response response = actorWS.findByName("Jennifer");
-//		List<Actor> actorList = (List<Actor>) response.getEntity();
-//		assertEquals(HttpStatus.SC_OK, response.getStatus());
-//		assertEquals(actorList.size(), 1);
-//		Actor actor = actorList.get(0);
-//		assertEquals(745996, actor.getId());
-//		assertEquals("Amy", actor.getFirstName());
-//		assertEquals("Paisley", actor.getLastName());
-//		assertEquals("F", actor.getGender());
-//
-//	}
+	@Test
+	public void testSearchActorByName() {
+		Response response = actorWS.findByName("Amy");
+		List<Actor> actorList = (List<Actor>) response.getEntity();
+		assertEquals(HttpStatus.SC_OK, response.getStatus());
+		assertEquals(actorList.size(), 1);
+		Actor actor = actorList.get(0);
+		assertEquals(745996, actor.getId());
+		assertEquals("Amy", actor.getFirstName());
+		assertEquals("Paisley", actor.getLastName());
+		assertEquals("F", actor.getGender());
+
+	}
 	
 }
