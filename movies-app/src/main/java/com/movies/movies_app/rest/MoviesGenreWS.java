@@ -18,6 +18,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 import com.movies.movies_app.data.MoviesGenreDAO;
+import com.movies.movies_app.model.Director;
 import com.movies.movies_app.model.MoviesGenre;
 
 @Path("/moviesgenres")
@@ -32,8 +33,7 @@ public class MoviesGenreWS {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response listAll(@QueryParam("start") final Integer startPosition,
-			@QueryParam("max") final Integer maxResult) {
+	public Response listAll() {
 		List<MoviesGenre> moviesGenre = moviesGenreDAO.getAllMoviesGenres();
 		return Response.status(200).entity(moviesGenre).build();
 		
@@ -45,6 +45,18 @@ public class MoviesGenreWS {
 	public Response create(final MoviesGenre moviesgenre) {
 		moviesGenreDAO.save(moviesgenre);
 		return Response.status(201).entity(moviesgenre).build();
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("name/{name}")
+	public Response findByName(@PathParam("name") final String name) {
+		List<MoviesGenre> movieGenre = moviesGenreDAO.getMoviesGenresByName(name);
+		
+		if (movieGenre == null) {
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		return Response.status(200).entity(movieGenre).build();
 	}
 
 	@GET
@@ -69,7 +81,7 @@ public class MoviesGenreWS {
 
 	@DELETE
 	@Path("/{id}")
-	public Response deleteById(int id) {
+	public Response deleteMoviesGenreById(int id) {
 		moviesGenreDAO.delete(id);
 		return Response.status(204).build();
 	}

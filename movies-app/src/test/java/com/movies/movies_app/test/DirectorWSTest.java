@@ -52,8 +52,8 @@ public class DirectorWSTest {
 		utilsDAO.deleteTableDirector();
 		Director director = new Director();
 		director.setId(123);
-		director.setFirstName("Martin");
-		director.setLastName("Scorsese");
+		director.setFirstName("Christopher");
+		director.setLastName("Nolan");
 		directorDAO.save(director);
 		director = new Director();
 		director.setId(8653);
@@ -70,8 +70,8 @@ public class DirectorWSTest {
 		assertEquals("Data fetch = data persisted", directorList.size(), 2);
 		Director director = directorList.get(0);
 		assertEquals(123, director.getId());
-		assertEquals("Martin", director.getFirstName());
-		assertEquals("Scorsese", director.getLastName());
+		assertEquals("Christopher", director.getFirstName());
+		assertEquals("Nolan", director.getLastName());
 	}
 	
 	@Test
@@ -79,8 +79,8 @@ public class DirectorWSTest {
 		Response response = directorWS.findById(123);
 		Director director = (Director) response.getEntity();
 		assertEquals(123, director.getId());
-		assertEquals("Martin", director.getFirstName());
-		assertEquals("Scorsese", director.getLastName());
+		assertEquals("Christopher", director.getFirstName());
+		assertEquals("Nolan", director.getLastName());
 	}
 	
 	@Test
@@ -115,26 +115,26 @@ public class DirectorWSTest {
 	public void testUpdateDirector() {
 		Response response = directorWS.findById(123);
 		Director director = (Director) response.getEntity();
-		director.setFirstName("Martin");
+		director.setFirstName("Christopher");
 		director.setLastName("Lawrence");
 		response = directorWS.update(director);
 		assertEquals(HttpStatus.SC_OK, response.getStatus());
 		director = (Director) response.getEntity();
 		assertEquals(123, director.getId());
-		assertEquals("Martin", director.getFirstName());
+		assertEquals("Christopher", director.getFirstName());
 		assertEquals("Lawrence", director.getLastName());
 	}
 	
 	@Test
 	public void testSearchDirectorByName() {
-		Response response = directorWS.findByName("Martin");
+		Response response = directorWS.findByName("Christopher");
 		List<Director> directorList = (List<Director>) response.getEntity();
 		assertEquals(HttpStatus.SC_OK, response.getStatus());
 		assertEquals(directorList.size(), 1);
 		Director director = directorList.get(0);
 		assertEquals(123, director.getId());
-		assertEquals("Martin", director.getFirstName());
-		assertEquals("Scorsese", director.getLastName());
+		assertEquals("Christopher", director.getFirstName());
+		assertEquals("Nolan", director.getLastName());
 
 	}
 	
