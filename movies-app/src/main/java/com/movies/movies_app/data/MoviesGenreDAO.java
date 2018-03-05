@@ -23,7 +23,7 @@ public class MoviesGenreDAO {
 	
 	public List<MoviesGenre> getMoviesGenresByName(String name) {
     	Query query=em.createQuery("SELECT w FROM MoviesGenre AS w "+
-    								"WHERE w.name LIKE ?1");
+    								"WHERE w.genre LIKE ?1");
     	query.setParameter(1, "%"+name.toUpperCase()+"%");
         return query.getResultList();
     }

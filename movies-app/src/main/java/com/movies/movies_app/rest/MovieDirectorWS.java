@@ -32,8 +32,7 @@ public class MovieDirectorWS {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response listAll(@QueryParam("start") final Integer startPosition,
-			@QueryParam("max") final Integer maxResult) {
+	public Response listAll() {
 			List<MoviesDirector> movieDirector = movieDirectorDAO.getAllMovieDirectors();
 			return Response.status(200).entity(movieDirector).build();
 	}
@@ -68,7 +67,7 @@ public class MovieDirectorWS {
 
 	@DELETE
 	@Path("/{id}")
-	public Response deleteById(int id) {
+	public Response deleteMovieDirectorById(int id) {
 		movieDirectorDAO.delete(id);
 		return Response.status(204).build();
 	}

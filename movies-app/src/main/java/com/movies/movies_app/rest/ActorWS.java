@@ -65,7 +65,7 @@ public class ActorWS {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("{name}")
+	@Path("name/{name}")
 	public Response findByName(@PathParam("name") final String name) {
 		List<Actor> actor = actorDAO.getActorsByName(name);
 		if (actor == null) {

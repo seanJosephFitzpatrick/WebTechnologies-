@@ -31,8 +31,7 @@ public class MovieWS {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response listAll(@QueryParam("start") final Integer startPosition,
-			@QueryParam("max") final Integer maxResult) {
+	public Response listAll() {
 		List<Movie> movie = movieDAO.getAllMovies();
 		return Response.status(200).entity(movie).build();
 	}
@@ -41,9 +40,9 @@ public class MovieWS {
 	@POST
 	@Consumes("application/json")
 	@Produces({MediaType.APPLICATION_JSON})
-	public Response save(final Movie movie) {
+	public Response create(final Movie movie) {
 		movieDAO.save(movie);
-		return Response.status(200).entity(movie).build();
+		return Response.status(201).entity(movie).build();
 	}
 
 	@GET
@@ -80,7 +79,7 @@ public class MovieWS {
 
 	@DELETE
 	@Path("/{id}")
-	public Response deleteById(@PathParam("id") final int id) {
+	public Response deleteMovieById(@PathParam("id") final int id) {
 		movieDAO.delete(id);
 		return Response.status(204).build();
 	}

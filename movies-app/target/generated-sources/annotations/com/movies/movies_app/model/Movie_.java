@@ -1,10 +1,8 @@
 package com.movies.movies_app.model;
 
-import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value = "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor")
 @StaticMetamodel(Movie.class)
 public abstract class Movie_ {
 
