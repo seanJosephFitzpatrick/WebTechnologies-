@@ -27,6 +27,7 @@ CREATE TABLE `movies` (
   `name` varchar(100) default NULL,
   `year` int(11) default NULL,
   `rank` float default NULL,
+  `picture` varchar(100) default NULL,
   PRIMARY KEY  (`id`),
   KEY `idx_name` (`name`(10))
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

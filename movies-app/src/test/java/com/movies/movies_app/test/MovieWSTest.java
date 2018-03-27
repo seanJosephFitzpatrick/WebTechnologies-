@@ -56,12 +56,14 @@ public class MovieWSTest {
 		movie.setName("Inception");
 		movie.setYear(2010);
 		movie.setRank(8.7f);
+		movie.setPicture("inception.jpg");
 		movieDAO.save(movie);
 		movie = new Movie();
 		movie.setId(30);
 		movie.setName("Interstellar");
 		movie.setYear(2014);
 		movie.setRank(8.5f);
+		movie.setPicture("interstellar.jpg");
 		movieDAO.save(movie);
 	}
 	

@@ -18,6 +18,8 @@ public class Movie implements Serializable {
 	private int id;
 
 	private String name;
+	
+	private String picture;
 
 	private float rank;
 
@@ -48,6 +50,14 @@ public class Movie implements Serializable {
 
 	public void setRank(float rank) {
 		this.rank = rank;
+	}
+	
+	public String getPicture() {
+		return this.picture;
+	}
+
+	public void setPicture(String picture) {
+		this.picture = picture;
 	}
 
 	public int getYear() {
