@@ -1,15 +1,18 @@
 # Movies App
 
-This is a 5th year Web Technologies project. The project is a movies app that displays a list of movies using two different Libraries, Jquery-DataTables and Backbone.js-JavaScript Library. This project is developed using Java with the [Data Access Object Pattern](http://www.oracle.com/technetwork/java/dataaccessobject-138824.html).         
-
-### Project Architecture
-![architec](https://user-images.githubusercontent.com/9217947/41192373-fe5c271c-6bfc-11e8-8541-eeafe8cd648f.png)
-
 ### Backbone.js - JavaScript Library
 ![backbone](https://user-images.githubusercontent.com/9217947/41192559-eb193c50-6bff-11e8-8703-017b4366a048.png)
 
 ### DataTables - Jquery
 ![datatable](https://user-images.githubusercontent.com/9217947/41192542-9fc6196c-6bff-11e8-8a9e-a10b73dcb3af.png)
+
+### Project Architecture
+![architec](https://user-images.githubusercontent.com/9217947/41192373-fe5c271c-6bfc-11e8-8541-eeafe8cd648f.png)
+
+The project is a web application for storing movies and performing basics CRUD operations using two different Libraries, Jquery-DataTables and Backbone.js-JavaScript Library. This project is developed using Java with the [Data Access Object Pattern](http://www.oracle.com/technetwork/java/dataaccessobject-138824.html). 
+
+Languages, Technologies and Implementation Architecture used for this project:
+* Java, JavaScript, Eclipse, Backbone.js, DataTables, (JSON over HTTP), JBoss, JAX-RS, EJB, JPA, AJAX, Arquillian, MySQL, BitBucket, Git, Maven, Bootstrap, HTML/CSS.
 
 
 ## Getting Started
