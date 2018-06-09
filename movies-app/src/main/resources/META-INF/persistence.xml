@@ -7,6 +7,9 @@
    <persistence-unit name="moviesDB">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <jta-data-source>java:/MySQLMovieDS</jta-data-source>
+        <class>com.movies.movies_app.model.MoviesDirector</class>
+        <class>com.movies.movies_app.model.MoviesGenre</class>
+        <class>com.movies.movies_app.model.Role</class>
         <properties>
             <property name="hibernate.archive.autodetection" value="class" />
             <property name="hibernate.format_sql" value="true" />

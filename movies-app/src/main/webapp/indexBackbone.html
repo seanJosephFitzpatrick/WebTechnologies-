@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Movie Mania</title>
+
+	<link rel="stylesheet" href="resources/css/bootstrapV4.css" />
+	<link rel="stylesheet" href="resources/css/font-awesome.css" />
+	<link rel="stylesheet" href="resources/css/screen.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+    
+    <script src="resources/lib/popper.min.js"></script>
+	<script src="resources/lib/bootstrapV4.js"></script>
+	<script src="resources/js/backbone/app.js"></script>
+    <script src="resources/js/backbone/models/movie.js"></script>
+    <script src="resources/js/backbone/views/mainView.js"></script>
+    <script src="resources/js/backbone/views/movieDetails.js"></script>
+	<script src="resources/js/backbone/views/openModal.js"></script>
+	<script src="resources/js/backbone/views/movieCard.js"></script>
+	<script src="resources/js/backbone/views/movieView.js"></script>
+	<script src="resources/js/backbone/views/modalView.js"></script>
+
+<script type="text/template" id="movie_list">
+	<td class = "sorting_1"> <%=id%> </td>
+	<td> <%=name%> </td>
+	<td> <%=year%> </td>
+	<td> <%=rank%> </td>
+	<td> <%=picture%> </td>
+	<td> <button id="myBtn" class="btn btn-info"><i class="fa fa-edit">&emsp;Edit</i></button> </td>					
+</script>
+ 
+<script type="text/template" id="movieCard">
+	<img src="resources/images/<%=picture%>">
+	<p>Name: <%=name%></p>
+	<p>Year: <%=year%></p>
+	<p>Rank: <%=rank%></p>	
+</script>
+ 
+<script type="text/template" id="movie_details">
+<form id="modalForm">
+	<label for=id> ID:</label> 
+	<input type="text" id="id" class="form-control form-control-sm" value="<%=id%>" > 
+	<br>
+	
+	<label for=name> Name:</label> 
+	<input type="text" id="name" class="form-control form-control-sm" value="<%=name%>" > 
+	<br>
+						
+	<label for=year> Year: </label> 
+	<input type="text" id="year" class="form-control form-control-sm" value="<%=year%>" > 
+	<br>
+	
+	<label for="rank"> Rank: </label> 
+	<input type="text" id="rank" class="form-control form-control-sm" value="<%=rank%>" > 
+	<br>
+	
+	<label for="picture"> Picture: </label>
+	<input type="text" id="picture" class="md-textarea form-control" value="<%=picture%>" >
+	<br>
+</form>
+<div class="text-center mt-4 mb-2">
+	<button id="btnEdit" class="btn btn-info">Save</button>
+	<button id="btnClear" class="btn btn-info">Create</button>
+	<button id="btnDelete" class="btn btn-info">Delete</button>
+</div>
+</script>
+</head>
+<body>
+	<div class="firstDiv">
+		<h1 align="center">Movie Mania</h1>
+		<h4 align="center">One place for all the best movies</h4>
+		<br />
+		
+		<ul class="nav nav-tabs" role="tablist" id="tabs">
+			<li class="nav-item">
+				<a class="nav-link active" id="homeTab" data-toggle="tab" href="#home" role="tab"> 
+				<i class="fa fa-home"></i>Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="productsTab" data-toggle="tab" href="#product" role="tab">
+				<i class="fa fa-list"> </i> Products</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="adminTab" data-toggle="tab" href="#admin" role="tab">
+				<i class="fa fa-user"> </i> Admin</a>
+			</li>
+		</ul>
+	</div>
+
+	<!--Tab panes-->
+	<div class="tab-content">
+		<div class="tab-pane active" id="home" role="tabpanel">
+			<div id="home">
+			<br /><br />
+				<div id="homeContainer">
+					<article class="description">
+						<center><img align="center" id="homePic" src="resources/images/blackPanther.jpg"></center>
+					</article>
+				</div>
+				<br />
+				<p align="center"><b>Welcome to the Movie Mania Application</b></p>
+			</div>
+		</div>
+		<div class="tab-pane" id="product" role="tabpanel">
+			<div id="container">
+				<div id="products">
+					<div  id="productList">
+						<div class="row" id="productItem"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane" id="admin" role="tabpanel">
+			<div id="container">
+				<div id="admin">
+					<table id="myTable" class="table table-striped">
+						<thead>
+							<tr class="header">
+								<th>ID</th>
+								<th>Name</th>
+								<th>Year</th>
+								<th>Rank</th>
+								<th>Picture</th>
+								<th>Edit</th>
+							</tr>
+						</thead>
+						<tbody id="tableBody"></tbody>
+					</table>		
+					<div id="editModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog cascading-modal" role="document">
+							<div class="modal-content">
+								<div class="modal-header info-color white-text">
+								<h4 class="title"></h4>
+								<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+								</div>
+								<!--Body-->
+								<div class="modal-body" id="modalBody"></div>
+							</div>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

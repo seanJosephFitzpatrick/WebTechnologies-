@@ -1,11 +1,9 @@
 package com.movies.movies_app.rest;
 
 import java.util.List;
-
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -18,9 +16,9 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.UriBuilder;
 import com.movies.movies_app.data.ActorDAO;
 import com.movies.movies_app.model.Actor;
+import com.movies.movies_app.model.Movie;
 
 @Path("/actors")
 @Stateless
@@ -34,45 +32,55 @@ public class ActorWS {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response listAll(@QueryParam("start") final Integer startPosition,
-			@QueryParam("max") final Integer maxResult) {
+	public Response listAll() {
 		List<Actor> actor = actorDAO.getAllActors();
-		return Response.status(200).entity(actor).build();
+		return Response.status(200).entity(actor).build(); 
 	}
-
-	/*
-	@POST
-	public Response create(final Actor actor) {
-		//TODO: process the given actor 
-		//here we use Actor#getId(), assuming that it provides the identifier to retrieve the created Actor resource. 
-		return Response
-				.created(UriBuilder.fromResource(ActorWS.class).path(String.valueOf(actor.getId())).build())
-				.build();
-	}
-
+	
 	@GET
-	@Path("/{id:[0-9][0-9]*}")
-	public Response findById(@PathParam("id") final Long id) {
-		//TODO: retrieve the actor 
-		Actor actor = null;
+	@Path("/{id}")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response findById(@PathParam("id") int id) {
+		Actor actor = actorDAO.getActor(id);
 		if (actor == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
-		return Response.ok(actor).build();
+		return Response.status(200).entity(actor).build();
+	}
+	
+	@DELETE
+	@Path("/{id}")
+	public Response deleteActorById(int id) {
+		actorDAO.delete(id);
+		return Response.status(204).build();
+	}
+	
+	@POST
+	@Consumes("application/json") 
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response create(Actor actor) {
+		actorDAO.save(actor);
+		return Response.status(201).entity(actor).build();
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("name/{name}")
+	public Response findByName(@PathParam("name") final String name) {
+		List<Actor> actor = actorDAO.getActorsByName(name);
+		if (actor == null) {
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		return Response.status(200).entity(actor).build();
 	}
 
 	@PUT
-	@Path("/{id:[0-9][0-9]*}")
-	public Response update(@PathParam("id") Long id, final Actor actor) {
-		//TODO: process the given actor 
-		return Response.noContent().build();
+	@Path("/{id}")
+	@Consumes("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Response update(Actor actor) {
+		actorDAO.update(actor);
+		return Response.status(200).entity(actor).build();
 	}
-
-	@DELETE
-	@Path("/{id:[0-9][0-9]*}")
-	public Response deleteById(@PathParam("id") final Long id) {
-		//TODO: process the actor matching by the given id 
-		return Response.noContent().build();
-	}
-	 */
+	
 }

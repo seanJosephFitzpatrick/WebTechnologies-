@@ -22,13 +22,13 @@ public class ActorDAO {
 	
 	public List<Actor> getActorsByName(String name) {
     	Query query=em.createQuery("SELECT w FROM Actor AS w "+
-    								"WHERE w.name LIKE ?1");
+    								"WHERE w.firstName LIKE ?1");
     	query.setParameter(1, "%"+name.toUpperCase()+"%");
-        return query.getResultList();
+        return query.getResultList(); 
     }
 	
 	public Actor getActor(int id ) {
-        return em.find(Actor.class, id);
+        return em.find(Actor.class, id); 
     }
 	
 	public void save(Actor actor){
