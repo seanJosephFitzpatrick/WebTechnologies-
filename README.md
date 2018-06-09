@@ -1,12 +1,15 @@
 # Movies App
 
-This is a 5th year Web Technologies project. The project is a movies app that displays a list of movies and allows for CRUD operations. This project is developed using Java with the [Data Access Object Pattern](http://www.oracle.com/technetwork/java/dataaccessobject-138824.html).         
+This is a 5th year Web Technologies project. The project is a movies app that displays a list of movies using two different Libraries, Jquery-DataTables and Backbone.js-JavaScript Library. This project is developed using Java with the [Data Access Object Pattern](http://www.oracle.com/technetwork/java/dataaccessobject-138824.html).         
 
 ### Project Architecture
 ![architec](https://user-images.githubusercontent.com/9217947/41192373-fe5c271c-6bfc-11e8-8541-eeafe8cd648f.png)
 
 ### Backbone.js - JavaScript Library
 ![backbone](https://user-images.githubusercontent.com/9217947/41192441-ecee0c42-6bfd-11e8-8fba-5c9b10b0cc8e.png)
+
+### DataTables - Jquery
+![datatable](https://user-images.githubusercontent.com/9217947/41192506-f3b9cfd8-6bfe-11e8-8d74-cce14a6c148b.png)
 
 
 ## Getting Started
