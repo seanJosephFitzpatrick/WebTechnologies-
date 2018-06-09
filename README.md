@@ -2,7 +2,7 @@
 
 This is a 5th year Web Technologies project. The project is a movies app that displays a list of movies and allows for CRUD operations. This project is developed using Java with the [Data Access Object Pattern](http://www.oracle.com/technetwork/java/dataaccessobject-138824.html).         
 
-* Project Architecture
+### Project Architecture
 ![architec](https://user-images.githubusercontent.com/9217947/41192373-fe5c271c-6bfc-11e8-8541-eeafe8cd648f.png)
 
 
