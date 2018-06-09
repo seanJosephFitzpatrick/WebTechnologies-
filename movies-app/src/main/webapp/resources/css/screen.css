@@ -8,9 +8,8 @@ body {
 #container {
     margin: 0 auto;
     padding: 0 20px 10px 20px;
-    border: 1px solid #666666;
-    width: 865px; /* subtract 40px from banner width for padding */
-    background: #FFFFFF url(#{request.contextPath}/resources/gfx/banner.png) no-repeat;
+    width: 1200px; 
+    background: #EAECEE;
     padding-top: 110px;
 }
 #sidebar {
@@ -37,4 +36,43 @@ code {
 span.invalid {
     padding-left: 3px;
     color: red;
+}
+.alert-success {
+    color: #468847;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
 }
