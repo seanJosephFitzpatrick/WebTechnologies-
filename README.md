@@ -5,7 +5,7 @@ This is a 5th year Web Technologies project.
 
 ## Getting Started
 
-Download and extract the zip folder here [WebTechnologies-]()            
+Download and extract the zip folder here [WebTechnologies-](https://github.com/seanJosephFitzpatrick/WebTechnologies-/archive/master.zip)            
 
 ### Prerequisites
 
