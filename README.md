@@ -5,6 +5,9 @@ This is a 5th year Web Technologies project. The project is a movies app that di
 ### Project Architecture
 ![architec](https://user-images.githubusercontent.com/9217947/41192373-fe5c271c-6bfc-11e8-8541-eeafe8cd648f.png)
 
+### Backbone.js - JavaScript Library
+![backbone](https://user-images.githubusercontent.com/9217947/41192441-ecee0c42-6bfd-11e8-8fba-5c9b10b0cc8e.png)
+
 
 ## Getting Started
 
