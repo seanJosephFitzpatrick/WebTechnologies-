@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Movie Mania</title>
+
+<link rel="stylesheet" href="resources/css/latest.css" />
+<link rel="stylesheet" href="resources/css/bootstrapV4.css" />
+<link rel="stylesheet" href="resources/css/font-awesome.css" />
+<link rel="stylesheet" href="resources/css/screen.css" />
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+<script src="resources/lib/jquery.js"></script>
+<script src="resources/lib/popper.min.js"></script>
+<script src="resources/lib/bootstrapV4.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+<script src="resources/js/main.js"></script>
+
+
+
+</head>
+<body>
+
+	<div class="firstDiv">
+		<h1 align="center">Movie Mania</h1>
+		<h4 align="center">One place for all the best movies</h4>
+		<br />
+
+		<ul class="nav nav-tabs" role="tablist" id="tabs">
+			<li class="nav-item"><a class="nav-link active"
+				data-toggle="tab" href="#home" role="tab"> <i class="fa fa-home">
+				</i>Home
+			</a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab"
+				href="#products" role="tab"><i class="fa fa-list"> </i> Products</a>
+			</li>
+			<li class="nav-item"><a class="nav-link" data-toggle="tab"
+				href="#admin" role="tab"><i class="fa fa-user"> </i> Admin</a></li>
+		</ul>
+	</div>
+
+	<div class="tabs"></div>
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<div class="tab-pane active" id="home" role="tabpanel">
+			<div id="home">
+			<br />
+				<div id="homeContainer">
+					<article class="description">
+						<center><img id="homePic" src="resources/images/blackPanther.jpg"></center>
+					</article>
+				</div>
+				<br />
+				<p align="center"><b>Welcome to the Movie Mania Application</b></p>
+			</div>
+		</div>
+		<div class="tab-pane" id="products" role="tabpanel">
+			<div class="container">
+			<br />
+				<div id="productList">
+					<div class="row" id="myDiv"></div>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane" id="admin" role="tabpanel">
+			<div>
+				<table cellspacing="0" style="width: 100%" id="productsDataTable">
+					<thead>
+						<tr>
+							<th>Movie ID</th>
+							<th>Name</th>
+							<th>Year</th>
+							<th>Rank</th>
+							<th>Picture</th>
+							<th>Edit</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<button id="newMovie" type="button" class="btn btn-primary"
+				data-toggle="modal" data-target="#edit"
+				onclick="newMovieButtonClick()"
+				style="float: left; margin: 20px, 20px, 20px, 20px;">Add Movie</button>
+		</div>
+		<div class="tab-pane" id="settings" role="tabpanel">...</div>
+	</div>
+
+	<div id="edit" class="modal fade">
+		<div class="modal-dialog" id="modal">
+			<div class="modal-content">
+				<form method="post">
+					<div class="modal-header">
+						<h4 id="modalTitle" class="modal-title"></h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label><span class="req"></span>Movie ID</label> <input type="number"
+								id="idUpdate" name="id" class="form-control" >
+						</div>
+
+						<div class="form-group">
+							<label for="name"><span class="req"></span> Name: </label> <input
+								required name="name" type="text" class="form-control"
+								id="nameUpdate" />
+						</div>
+
+						<div class="form-group">
+							<label for="year"><span class="req"></span> Year: </label> <input
+								required name="year" type="text" class="form-control"
+								id="yearUpdate" />
+						</div>
+
+
+						<div class="form-group">
+							<label for="rank"><span class="req"></span> Rank: </label> <input
+								required name="rank" type="number" class="form-control"
+								id="rankUpdate" />
+						</div>
+						
+						<div class="form-group">
+							<label for="picture"><span class="req"></span> Picture: </label> <input
+								required name="picture" type="text" class="form-control"
+								id="pictureUpdate" />
+						</div>
+			
+						<div class="form-group">
+							<img id="pic" />
+						</div>
+							<input type="button" id="buttonDelete" class="btn btn-success"
+							onClick="functionDelete()" value="Delete"> 
+							
+							<input type="button" id="buttonUpdate" class="btn btn-success"
+							onClick="functionUpdate()" value="Update"> 
+							
+							<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					</div>
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-success" id="add" onClick="functionAdd(); return false;" value="Save">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
